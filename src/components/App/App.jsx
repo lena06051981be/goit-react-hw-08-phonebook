@@ -9,6 +9,8 @@ import Home from 'pages/Home';
 import Login from 'pages/Login';
 import Register from 'pages/Register';
 import Contacts from 'pages/Contacts';
+import { RestrictedRoute } from 'components/RestrictedRoute/RestrictedRoute';
+import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
 
 
 const App = () => {
@@ -20,18 +22,23 @@ const App = () => {
   }, [dispatch])
 
   return (
-    isRefreshing ? (
-      'Fetching user data...'
-    ) : (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home/>}/>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path='/contacts' element={<Contacts />} />        
-      </Route>
-    </Routes>
-  ));
+    <>
+      {isRefreshing ? (
+        'Fetching user data...'
+      ) : (
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home/>}/>
+          <Route path="/login" 
+            element={<RestrictedRoute component={Login} redirectTo='/contacts' />} />
+          <Route path="/register" 
+            element={<RestrictedRoute component={Register} redirectTo='/contacts' />} />
+          <Route path='/contacts' 
+            element={<PrivateRoute component={Contacts} redirectTo='/' />} />        
+        </Route>
+      </Routes>
+      )}
+    </>);
 };
 
 export default App;
