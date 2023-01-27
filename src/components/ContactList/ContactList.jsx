@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux';
 import { Contact } from 'components/Contact/Contact';
 import { List } from './ContactList.styled';
@@ -8,8 +9,8 @@ import { fetchContacts } from 'redux/contacts/operations';
 
 export const ContactList = () => {
   const contacts = useSelector(selectСontacts);
-  console.log(selectСontacts);
-  console.log(contacts);
+  // console.log(selectСontacts);
+  // console.log(contacts);
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
@@ -28,3 +29,13 @@ export const ContactList = () => {
     </List>
   );
 };
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }).isRequired
+  ),
+}

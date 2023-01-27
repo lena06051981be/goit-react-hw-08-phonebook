@@ -13,4 +13,3 @@ PrivateRoute.propTypes ={
   component: PropTypes.object,
   redirectTo: PropTypes.string
 }
-
