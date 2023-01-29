@@ -2,13 +2,10 @@ import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contacts/operations';
-import {
-    FormTitle,
-    PhonebookForm,
-    FormLabel,
-    FormInput,
-    FormBtn,
-} from './ContactAddForm.styled'
+import { Title } from './ContactAddForm.styled'
+import { Box, Button, TextField } from '@mui/material';
+import { PeopleAlt, PersonAddAlt1 } from '@mui/icons-material';
+import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 
 
 
@@ -49,44 +46,78 @@ export const ContactForm = () => {
         setNumber('');
     }
 
-    const nameInputId = nanoid();
-    const numberInputId = nanoid();
+    // const nameInputId = nanoid();
+    // const numberInputId = nanoid();
 
 
   return (
-    <PhonebookForm onSubmit={handleFormSubmit} >
-    <FormTitle>Create new contact</FormTitle>
-        <FormLabel htmlFor={nameInputId} >
-            Name {''}
-        </FormLabel>                
-        <FormInput
+    <Box
+      display="flex"
+      flexDirection={'column'}
+      gap="10px"
+      justifyContent="center"
+      alignItems="center"
+        component="form"
+        autoComplete="off"
+        maxWidth="420px"
+        // sx={{ margin: '0 auto' }}
+        onSubmit={handleFormSubmit}
+      >
+        <Box sx={{ display: 'flex', alignItems: 'flex-end', gap: "10px" }}>
+          <Title >Add new contact</Title>
+          <PeopleAlt />
+        </Box>
+        <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+          <PersonAddAlt1 sx={{ color: '#0f7ec9', mr: 1, my: 0.5 }} />
+          <TextField
+            sx={{ width: '260px' }}
+            variant="standard"
+            onChange={handleInputChange}
             type="text"
             name="name"
-            id={nameInputId}
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            placeholder="Emmy Richards"
-            required
             value={name}
+            required
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            size="small"
+            margin="none"          
+            // fullWidth
+            id="name"
+            label="Name"
+            inputProps={{
+              pattern:
+                "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$",
+            }}            
+          />
+        </Box>
+
+        <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+          <PhoneIphoneIcon sx={{ color: '#0f7ec9', mr: 1, my: 0.5 }} />
+          <TextField
+            sx={{ width: '260px' }}
+            variant="standard"
             onChange={handleInputChange}
-        />                
-        
-        <FormLabel htmlFor={numberInputId}>
-            Number {''}
-        </FormLabel>                
-        <FormInput
             type="tel"
             name="number"
-            id={numberInputId}
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            placeholder="000-000-00"
-            required
             value={number}
-            onChange={handleInputChange}
-        />                        
-    <FormBtn type="submit">Add contact</FormBtn>
-    </PhonebookForm>
+            required
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            size="small"
+            margin="none"          
+            fullWidth
+            id="number"
+            label="Number"
+            inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}            
+          />
+        </Box>       
+          <Button
+            type="submit"
+            // fullWidth
+            variant="contained"
+            sx={{ mr: -1, mt: "18px", width: '200px' }}
+          >
+            Add contact
+          </Button>                       
+    </Box>
   );
 };
 

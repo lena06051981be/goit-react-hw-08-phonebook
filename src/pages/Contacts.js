@@ -7,8 +7,8 @@ import { selectLoading } from 'redux/contacts/selectors';
 import ContactForm from 'components/ContactAddForm/ContactAddForm';
 import { Main } from './Title.styled';
 
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import Loader from 'components/Loader/Loader';
+import { Container } from '@mui/system';
 
 
 export default function Contacts() {
@@ -22,17 +22,19 @@ export default function Contacts() {
 
   return (
     <Main>
+      <Container sx={{ display: "flex", flexDirection: "column", alignItems: "center", pt: 2, pb: 4 }} maxWidth="xl">
       {isLoading && <Loader />}
       {/* {isLoggedIn ? ( ) :  (<div>Please Login or register</div>) } */}
-        <h2> 
-            <AccountBoxIcon fontSize="large" sx={{ mr: 1 }} />
+        {/* <h2> 
+            <PeopleAlt fontSize="large" sx={{ mr: 1 }} />
                  Your Contacts 
-        </h2>
-        <Filter />
-        <ContactForm />
+        </h2> */}
+        
+      <ContactForm />
+      <Filter />
       {/* <div>{isLoading && 'Request in progress...'}</div> */}
       <ContactList />      
-      
+      </Container>
     </Main>
   );
 }

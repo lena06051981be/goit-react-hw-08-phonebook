@@ -1,19 +1,60 @@
+import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+import { AppBar, Box, Toolbar, Typography } from "@mui/material";
+import { Container } from "@mui/system";
 import { AuthNav } from "components/AuthNav/AuthNav";
 import Navigation from "components/Navigation/Navigation";
 import { UserMenu } from "components/UserMenu/UserMenu";
 import { useAuth } from "Hooks";
-import { Header } from "./AppBar.styled";
+import { Link } from "react-router-dom";
+// import { Header } from "./AppBar.styled";
 
 
-export const AppBar = () => {
+export const AppNavBar = () => {
   const { isLoggedIn } = useAuth();
 
     console.log(isLoggedIn);
   
-    return (
-      <Header >
-        <Navigation />
-        {isLoggedIn ? <UserMenu />  : <AuthNav />}
-      </Header>
+  return (
+    <AppBar
+      position="static"
+      // sx={{ backgroundColor: '#1cb6cd', flexShrink: 0 }}
+    >
+      <Container >
+        {/* <Header > */}
+        <Toolbar>
+          <Typography
+            variant="h5"
+            noWrap
+            component={Link}
+            to='/'
+            // href="/"
+            sx={{
+              mr: 5,
+              mb: 1,
+              display: { xs: 'none', md: 'flex' },
+              flexGrow: 1,
+              fontFamily: 'revert-layer',
+              fontWeight: 500,
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            <AutoStoriesIcon sx={{ color: '#fff', pr: 1, mt: 0.5 }}/>
+            Phonebook
+          </Typography>
+
+          <Box sx={{ 
+            flexGrow: 24,
+            fontWeight: 700,
+            textDecoration: 'none'
+          }}>   
+            <Navigation />
+          </Box>
+
+            {isLoggedIn ? <UserMenu /> : <AuthNav />}
+            </Toolbar>
+        {/* </Header> */}
+      </Container>
+    </AppBar>
     );
   };

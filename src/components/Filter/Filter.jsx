@@ -1,10 +1,9 @@
+import SearchIcon from '@mui/icons-material/Search';
+import { TextField, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterContacts } from 'redux/contacts/filterSlice';
 import { selectFilter } from 'redux/contacts/selectors';
-import {
-  FilterTitle, 
-  Filterinput, 
-} from './Filter.styled';
+import { Item } from './Filter.styled';
 
 
 export const Filter = () => {
@@ -15,16 +14,23 @@ export const Filter = () => {
         dispatch(filterContacts(event.currentTarget.value));
     };  
      
-    return (       
+    return (    
         <label>
-            <FilterTitle>Filter</FilterTitle>  
-            <Filterinput
-                type="text"
+          <Typography variant="h6" gutterBottom sx={{ width: "292px", mb: 0, mt: 1, fontFamily: 'revert' }}>
+              Filter
+          </Typography >
+          <Item >
+            <SearchIcon sx={{ color: '#0f7ec9', mr: 1, fontSize: 30, }}/>
+            <TextField
+                variant="standard"
+                id="standard-search"
+                label="Enter request"
+                type="search"
                 name="filter" 
                 value={valueFilter}
-                onChange={onFilter}
-                placeholder="Enter request"
-            ></Filterinput>            
+                onChange={onFilter}      
+            ></TextField>   
+          </Item>
         </label>     
     )    
  }

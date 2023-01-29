@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import image from '../images/background.jpg'
+// import image from '../images/background.jpg'
 
 export const Title = styled.h1`
   font-family: 'Handlee', cursive;
@@ -21,19 +21,18 @@ export const TitleLogin = styled.h1`
   width: 80px;
   padding-bottom: 5px;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: #fff;  
   /* box-shadow: ; */
   /* color: #0f7ec9; */
 `;
 
 export const Main = styled.main`
-
-height: 100vh;
-display: flex;
-flex-direction: column;
-/* justify-content: center; */
-align-items: center;
-  margin: 0 auto;
-  padding-top: 22px;
-  background-image: url('${image}');
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin: 0 auto; */
+  padding-top: 54px;  
 `
+/* background-image: url('${image }'); */
