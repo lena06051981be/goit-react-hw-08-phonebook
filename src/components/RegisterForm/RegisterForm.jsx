@@ -5,7 +5,6 @@ import { Box, Button, Container, FormControl, IconButton, Input, InputAdornment,
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
-// import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import { BottomText, StyledLink } from './RegisterForm.styled';
 import { toast } from 'react-toastify';
@@ -55,7 +54,7 @@ export const RegisterForm = () => {
       toast.warn('Password must contain at least 7 characters');
       return;
     }
-    
+
     dispatch(
       register({
         name: form.elements.name.value.trim(),
@@ -129,8 +128,7 @@ export const RegisterForm = () => {
                       {showPassword ? <VisibilityOffSharp sx={{ color: '#0f7ec9' }}/> : <VisibilitySharp />}
                     </IconButton>
                   </InputAdornment>
-                }
-                
+                }               
               />
             </FormControl>
           </Box>  
@@ -138,87 +136,11 @@ export const RegisterForm = () => {
           <Button variant="contained" type="submit">
             Registration
           </Button>
-          {/* <ToastContainer /> */}
         </form> 
         <BottomText>
             Already have an account? <StyledLink to="/login">Log in</StyledLink>
         </BottomText>
       </Box>  
-
-
-      {/* <RegForm  onSubmit={handleSubmit} autoComplete="off">
-        <Label >
-          Username
-          <input 
-            type="text"
-            name="name"
-            id="nameId"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            placeholder="Emmy Richards"
-            required
-            value={name}
-            onChange={handleChange}          
-          />
-        </Label>
-        <Label >
-          Email
-          <input 
-            type="email"
-            name="email"
-            id="emailId"
-            title="Email must contain at list '@'. For example user@mail.com"
-            placeholder="user@mail.com"
-            required
-            value={email}
-            onChange={handleChange}
-          />
-        </Label>
-        <Label >
-          Password
-          <input
-            type="password"
-            name="password"
-            id="passwordInputId"
-            title="Your Password must include a minimum of 7 characters"
-            placeholder="password"
-            required
-            value={password}
-            onChange={handleChange}  
-          />
-        </Label>
-        <button type="submit">Register</button>
-        </RegForm> */}
     </Container>
   );
 };
-
-
-
-//  <FormControl sx={{ m: 1, width: '100%' }} variant="outlined">
-//           <InputLabel htmlFor="outlined-adornment-password2">
-//             Confirm Password
-//           </InputLabel>
-//           <OutlinedInput
-//             name="confirm"
-//             id="outlined-adornment-password2"
-//             onChange={handleChange}
-//             type={showPassword2 ? 'text' : 'password'}
-//             startAdornment={
-//               <InputAdornment position="start">
-//                 <KeyIcon />
-//               </InputAdornment>
-//             }
-//             endAdornment={
-//               <InputAdornment position="end">
-//                 <IconButton
-//                   aria-label="toggle password visibility"
-//                   onClick={handleClickShowPassword2}
-//                 >
-//                   {showPassword2 ? <VisibilityOffSharp /> : <VisibilitySharp />}
-//                 </IconButton>
-//               </InputAdornment>
-//             }
-//             label="Confirm Password"
-//           />
-//         </FormControl>
