@@ -8,6 +8,7 @@ import { register } from 'redux/auth/operations';
 // import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import { BottomText, StyledLink } from './RegisterForm.styled';
+import { toast } from 'react-toastify';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -42,6 +43,19 @@ export const RegisterForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
+    if (form.elements.name.value.trim() === "") {
+      toast.info('Sorry, Name field cannot be empty');
+      return;
+    }
+    if (form.elements.email.value.trim() === "") {
+      toast.info('Sorry, E-mail field cannot be empty');
+      return;
+    }
+    if (form.elements.password.value.length < 6) {
+      toast.warn('Password must contain at least 7 characters');
+      return;
+    }
+    
     dispatch(
       register({
         name: form.elements.name.value.trim(),
