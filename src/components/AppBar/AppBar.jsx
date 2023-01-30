@@ -14,7 +14,7 @@ export const AppNavBar = () => {
   
   return (
     <AppBar
-      position="static"
+      // position="static"
       // sx={{ backgroundColor: '#1cb6cd', flexShrink: 0 }}
     >
       <Container >
