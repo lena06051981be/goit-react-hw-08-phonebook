@@ -18,9 +18,7 @@ export const Contact = ({ id, number, name }) => {
 
   return (    
       <Item >
-        {/* <Person sx={{ mr: 1 }} /> */}
-        <Circle>{name.charAt(0).toUpperCase()} </Circle>    
-        
+        <Circle>{name.charAt(0).toUpperCase()} </Circle> 
         <p>
           {name}: <span>{number}</span>
         </p>
