@@ -71,14 +71,12 @@ export default function LoginForm() {
     }
     
     dispatch(logIn({ 
-        email: form.elements.email.value.trim(), 
-        password: form.elements.password.value, 
+      email: email.trim(), 
+      password: password, 
     }));
     
-    form.reset();
-    // --- either  ---
-    // setEmail('');
-    // setPassword('');
+    setEmail('');
+    setPassword('');
   };
 
   return (

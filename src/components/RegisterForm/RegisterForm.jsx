@@ -57,12 +57,14 @@ export const RegisterForm = () => {
 
     dispatch(
       register({
-        name: form.elements.name.value.trim(),
-        email: form.elements.email.value.toLowerCase().trim(),
-        password: form.elements.password.value.trim(),
+        name: name.trim(),
+        email: email.trim(),
+        password: password.trim(),
       })
     );
-    form.reset();
+    setName('');
+    setEmail('');
+    setPassword('');
   };
 
   return (
