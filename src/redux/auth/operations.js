@@ -73,10 +73,8 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
-    // const {token} = thunkAPI.getState().auth;
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-    // const state = thunkAPI.getState().auth;
     console.log(persistedToken);
 
     if (persistedToken === null) {
@@ -84,7 +82,6 @@ export const refreshUser = createAsyncThunk(
     } else {
       console.log("Refreshing user");
       setAuthHeader(persistedToken);
-      // token.set(persistedToken);
     }
     
     try {      
