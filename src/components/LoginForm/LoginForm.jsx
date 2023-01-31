@@ -60,7 +60,6 @@ export default function LoginForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const form = e.currentTarget;
     if (email.trim() === "") {
       toast.info('Sorry, E-mail field cannot be empty');
       return;

@@ -41,7 +41,6 @@ export const RegisterForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const form = e.currentTarget;
     if (name.trim() === "") {
       toast.info('Sorry, Name field cannot be empty');
       return;
