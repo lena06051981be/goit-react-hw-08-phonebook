@@ -6,7 +6,6 @@ import { Item, DeleteContact, Circle } from './Contact.styled';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { DeleteForeverOutlined } from '@mui/icons-material';
-// import { Person, PersonOutline, AccountBox } from '@mui/icons-material';
 
 export const Contact = ({ id, number, name }) => {
   const dispatch = useDispatch();
