@@ -61,9 +61,9 @@ export const RegisterForm = () => {
         password: password.trim(),
       })
     );
-    setName('');
-    setEmail('');
-    setPassword('');
+    // setName('');
+    // setEmail('');
+    // setPassword('');
   };
 
   return (

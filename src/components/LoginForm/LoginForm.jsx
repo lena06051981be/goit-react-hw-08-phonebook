@@ -74,8 +74,8 @@ export default function LoginForm() {
       password: password, 
     }));
     
-    setEmail('');
-    setPassword('');
+    // setEmail('');
+    // setPassword('');
   };
 
   return (
